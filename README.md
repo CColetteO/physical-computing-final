@@ -31,17 +31,15 @@ The hardware can be broken into three categories: 3D-printed, electronic, and wo
 The three main parts described in the previous section are all 3D-printed. They are all revisions of existing projects from Thingiverse. 
 The rotating holder is based off of a [pill dispenser](https://www.thingiverse.com/thing:1538044). The base is largely the same except for resizing. The lid had to be significantly adjusted to allow for easier attachment, both to the frame and to the base of the holder. 
 The funnel is a resized version of [this design](https://www.thingiverse.com/thing:13976). 
-The one-cup dispenser is an alteration of a [coffee dispenser](https://www.thingiverse.com/thing:739261). After the initial work of calculating the correct scaling to dispense one cup of tea, the smaller size resulted in many problems getting the different pieces to print and fit together. After resizing, it took five prints of the lower assembly to find a rotation and slicing that would not break or have loose filament preventing insertion of the measuring cup. The cup itself took multiple alterations and prints, and even then required significant sanding to fit into the lower assembly. However, compared to other dispensers that were tested, it was still the best for the intended use, and it does work very well for teas without large chunks. (The video below was done using a tea without large pieces, but the dispenser was still a little stuck from a trial with chunks in the tea!)
+The one-cup dispenser is an alteration of a [coffee dispenser](https://www.thingiverse.com/thing:739261). After the initial work of calculating the correct scaling to dispense one cup of tea, the smaller size resulted in many problems getting the different pieces to print and fit together. After resizing, it took five prints of the lower assembly to find a rotation and slicing that would not break or have loose filament preventing insertion of the measuring cup. The cup itself took multiple alterations and prints, and even then required significant sanding to fit into the lower assembly. However, compared to other dispensers that were tested, it was still the best for the intended use, and it does [work very well for teas without large chunks (unless it's still stuck from a previous run with chunks)](images/IMG_3866.MOV). 
 
-![Dispensing](images/IMG_3866.MOV)
 
 The electronics consist of a Photon, two servos, four push buttons, and the wires connecting them. The Photon outputs commands to the servo, takes in the inputs from the buttons, and communicates with the site for both commands input and information output. The two servos are both [360 degree servos](https://smile.amazon.com/gp/product/B01F22XS5Y/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1), with one oriented horizontally to rotate the holder to the desired selection, while the other is oriented vertically to dispense the tea from the open slot. Since even at full speed the rotation does not dispense all of the tea, it has to "shake" the container a few times. The push buttons have been explained above; from left to right, they dispense the tea (green), rotate the container left to an earlier date (red), rotate the container right to a later date (blue), and set the selected slot as having been filled (yellow). 
 
 The wood pieces comprise the frame and the case for the Photon. The heart of the frame is three vertical pieces secured by brackets to a shelf. Two of these support the rotating dowel and a crossbeam attached to the funnel, while the third holds the dispensing servo. The dowel is attached to the lid of the container, keeping it in place as the base rotates, and to a smaller frame which holds the selecting servo as well as countering its torque so the container base rotates rather than the main body of ther servo. The final wood piece is the traveling case that acts as a case for the Photon and a base for the pushbuttons. 
 
-The software has largely been described already, with the Photon at the center connecting the servos, buttons, and website. The website has three sections: information about the teas, including the current selection and whether or not each is empty; buttons to change the tea selection and then dispense it, where you can confirm your selection in the prior section; and an environmental impact summary, a simple counter of how many K-cups or teabags saved since the device was last powered on with the assumption currently being that the slots are filled each time and thus 4 cups are saved per dispensing. 
+The software has largely been described already, with the Photon at the center connecting the servos, buttons, and website. The website has three sections: information about the teas, including the current selection and [whether or not each is empty](images/IMG_3860.MOV); buttons to change the tea selection and then dispense it, where you can confirm your selection in the prior section; and an environmental impact summary, a simple counter of how many K-cups or teabags saved since the device was last powered on with the assumption currently being that the slots are filled each time and thus 4 cups are saved per dispensing. 
 
-![Refilling](images/IMG_3860.MOV)
 ![Environment](images/IMG_3862.JPG)
 
 
@@ -56,7 +54,7 @@ The servos are differentiated by their rotation; the horizontal one on the left 
 
 [The code](code/my_code.ino) opens with some global variable declarations, including `teaNum` (the index of the selected tea), `cups` (the number of cups saved so far), and the various values for the button and servo connections. `Setup` then initializes the buttons and servos and publicizes certain functions and variables. The `loop` function waits for inputs from any of the buttons, with a small delay to avoid conflicts between multiple button presses. There are then a variety of functions: `dispenseTea()` controls the dispenser servo; `setEmpty()` sets the current slot to empty, only used after dispensing; `setFull()` sets the current slot to full, controlled by the yellow button; `turnLow()`, `turnLown()`, `turnHigh()`, and `turnHighn()` all control the rotation servo; `remoteDispense()`, `remoteLow()`, and `remoteHigh()` allow the website to trigger their respective functions. 
 
-Getting the dispenser to work took a lot of fiddling. Even now, it fails to completely dispense the tea a large portion of the time, which is why the last delay is long enough to allow some added encouragement! 
+Getting the dispenser to work took a lot of fiddling. Even now, [it fails to completely dispense the tea a large portion of the time](images/IMG_3858.MOV), which is why the last delay is long enough to allow some added encouragement! 
 ```c++
 int dispenseTea() { 
     dispenser.write(30); //forward
@@ -86,7 +84,6 @@ int dispenseTea() {
     return 1; 
 }
 ```
-![Dispensing](images/IMG_3858.MOV)
 
 
 ### Design / Form
