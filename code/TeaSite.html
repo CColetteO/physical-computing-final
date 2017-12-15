@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tea Dispenser</title>
+
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+</script>
+
+    </head>
+    <body>
+        <h1>Tea Dispenser Interactive Site</h1>
+        
+        <h2><A NAME=change>Change Tea Type</A></h2>
+        <button id="lowButton" onclick="lowerTea();">Earlier</button>
+        <button id="highButton"  onclick="increaseTea();">Later</button>
+        <p> <button id="dispenseButton"  onclick="dispense();">Dispense</button></p>
+        
+<!--
+        <form action="">
+        <p> <label>Change Sunday (1)</label>
+          <input type = "text"
+                 id = "Sun"
+                 value = "" /></p>
+        <p> <label>Change Monday (2)</label>
+          <input type = "text"
+                 id = "Mon"
+                 value = "" /></p>
+        <p> <label>Change Tuesday (3)</label>
+          <input type = "text"
+                 id = "Tue"
+                 value = "" /></p>
+        <p> <label>Change Wednesday (4)</label>
+          <input type = "text"
+                 id = "Wed"
+                 value = "" /></p>
+        <p> <label>Change Thursday (5)</label>
+          <input type = "text"
+                 id = "Thu"
+                 value = "" /></p>
+        <p> <label>Change Friday (6)</label>
+          <input type = "text"
+                 id = "Fri"
+                 value = "" /></p>
+        <p> <label>Change Saturday (7)</label>
+          <input type = "text"
+                 id = "Sat"
+                 value = "" /></p>
+        <input type="submit" value="Submit">
+        </form>
+-->
+        <hr />
+        
+         <h2> <A NAME=info>Tea Types </A></h2>
+        <p> Current Selection Index: <span id="type">Awaiting update</span></p>
+        <button id="getTeaType" onclick="getType();">Update Current Selection</button>
+        
+        <p> Sunday (1): Berry and Ancient Flower (Green) <br />
+        Empty? <span id="SunF">Awaiting update</span>
+        <button id="SunB" onclick="getSun();">Update</button></p>
+        
+        <p> Monday (2): Peach Lemon (Herbal) <br />
+        Empty? <span id="MonF">Awaiting update</span>
+        <button id="MonB" onclick="getMon();">Update</button></p>
+        
+        <p> Tuesday (3): Jasmine (Green) <br />
+        Empty? <span id="TueF">Awaiting update</span>
+        <button id="TueB" onclick="getTue();">Update</button></p>
+        
+        <p> Wednesday (4): Cranberry Blood Orange (Black) <br />
+        Empty? <span id="WedF">Awaiting update</span>
+        <button id="WedB" onclick="getWed();">Update</button></p>
+        
+        <p> Thursday (5): Lavender Earl Grey (Black) <br />
+        Empty? <span id="ThuF">Awaiting update</span>
+        <button id="ThuB" onclick="getThu();">Update</button></p>
+        
+        <p> Friday (6): Forest Fruit (Herbal) <br />
+        Empty? <span id="FriF">Awaiting update</span>
+        <button id="FriB" onclick="getFri();">Update</button></p>
+        
+        <p> Saturday (7): Lipton (Black) <br />
+        Empty? <span id="SatF">Awaiting update</span>
+        <button id="SatB" onclick="getSat();">Update</button></p>
+        
+        <p> A selection of 0 indicates that none of the teas are open, to minimize exposure to the air. </p>
+        
+        <hr />
+
+        <h2><A NAME=env>Environmental Impacts</A></h2>
+        <button id="getCupsSaved" onclick="getCups();">Update</button>
+        <p>Number of K-cups or teabags saved: <span id="cups">Awaiting update</span></p>
+
+<script type="text/javascript">
+var deviceID    = "550033001251353338363333";
+var accessToken = "0b2c8370623e8d894ce4a984204f4059d7aeaf69";
+
+var func2call1 = "ChangeTea";
+var var2get1 = "TeaType";
+var func2call2 = "DispenseTea";
+var var2get2 = "CupsSaved";
+var func2call3 = "SelectRandom"
+var teaString = "";
+
+
+function dispense() {
+    var requestURL = "https://api.particle.io/v1/devices/" + deviceID + "/" + func2call2 + "/";
+    $.post( requestURL, { params: "no input", access_token: accessToken });
+}
+
+    function changeTea() {
+    var requestURL = "https://api.particle.io/v1/devices/" + deviceID + "/" + func2call1 + "/";
+    $.post( requestURL, { params: teaString, access_token: accessToken });
+    }
+    
+    
+    function increaseTea() {
+    var requestURL = "https://api.particle.io/v1/devices/" + deviceID + "/" + "ChangeLow" + "/";
+    $.post( requestURL, { params: "no input", access_token: accessToken });
+}
+    
+    function lowerTea() {
+    var requestURL = "https://api.particle.io/v1/devices/" + deviceID + "/" + "ChangeHigh" + "/";
+    $.post( requestURL, { params: "no input", access_token: accessToken });
+}
+    
+    function getType() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + var2get1 + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#type").text(json.result);
+         });
+    }
+    
+    function getCups() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + var2get2 + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#cups").text(json.result);
+         });
+    }
+    
+    function getSun() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Sun" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#SunF").text(json.result);
+         });
+    intToFull(SunF); 
+    }
+    
+    function getMon() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Mon" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#MonF").text(json.result);
+         });
+        intToFull(MonF); 
+    }
+    
+    function getTue() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Tue" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#TueF").text(json.result);
+         });
+        intToFull(TueF); 
+    }
+    
+    function getWed() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Wed" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#WedF").text(json.result);
+         });
+        intToFull(WedF); 
+    }
+    
+    function getThu() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Thu" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#ThuF").text(json.result);
+         });
+        intToFull(ThuF); 
+    }
+    
+    function getFri() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Fri" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#FriF").text(json.result);
+         });
+        intToFull(FriF); 
+    }
+    
+    function getSat() {
+    var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + "Sat" + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             $("#SatF").text(json.result);
+         });
+        intToFull(SatF); 
+    }
+    
+    function intToFull(day){
+        if (day=="0") {day = "Empty";}
+        else if (day=="1") {day = "Full";}
+    }
+
+</script>
+
+    </body>
+</html>
