@@ -1,7 +1,5 @@
 # Final Project - Physical Computing and the Internet of Things
 
-This is a template for your final project documentation.  Please replace <content like this> with your own.  For help with the syntax of Github markdown, visit: [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
 *Name:*  Kate O'Hanlon
 
 *Due Date:* December 14, 2017
@@ -41,7 +39,7 @@ The one-cup dispenser is an alteration of a [coffee dispenser](https://www.thing
 
 The electronics consist of a Photon, two servos, four push buttons, and the wires connecting them. The Photon outputs commands to the servo, takes in the inputs from the buttons, and communicates with the site for both commands input and information output. The two servos are both [360 degree servos](https://smile.amazon.com/gp/product/B01F22XS5Y/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1), with one oriented horizontally to rotate the holder to the desired selection, while the other is oriented vertically to dispense the tea from the open slot. Since even at full speed the rotation does not dispense all of the tea, it has to "shake" the container a few times. The push buttons have been explained above; from left to right, they dispense the tea (green), rotate the container left to an earlier date (red), rotate the container right to a later date (blue), and set the selected slot as having been filled (yellow). 
 
-The wood pieces comprise the frame and the case for the Photon. The heart of the frame is three vertical pieces secured by brackets to a shelf. Two of these support the rotating dowel and a crossbeam attached to the funnel, while the third holds the dispensing servo. The dowel is attached to the lid of the container, keeping it in place as the base rotates, and to a smaller frame which holds the selecting servo as well as countering its torque so the container base rotates rather than the main body of ther servo. The final wood piece is the traveling case that acts as a case for the Photon and a base for the pushbuttons. It is convienient to open and close while still being secure, but I selected this design over simpler models because for many teas remind them of travel, whether to the impressive tea stores of France and England, the overwhelming plantations of Asia, or anywhere else your imagination might take you! (Except Antarctica, as that is the only continent where tea is not grown.) For all the wood, I elected to leave it bare; it looks much more natural, which is desirable when discussing tea, and the added protection was not necessary for most of the design as the only piece that is likely to come into contact with liquid was the base, which does have a water-resistant sealant. 
+The wood pieces comprise the frame and the case for the Photon. The heart of the frame is three vertical pieces secured by brackets to a shelf. Two of these support the rotating dowel and a crossbeam attached to the funnel, while the third holds the dispensing servo. The dowel is attached to the lid of the container, keeping it in place as the base rotates, and to a smaller frame which holds the selecting servo as well as countering its torque so the container base rotates rather than the main body of ther servo. The final wood piece is the traveling case that acts as a case for the Photon and a base for the pushbuttons. 
 
 The software has largely been described already, with the Photon at the center connecting the servos, buttons, and website. The website has three sections: information about the teas, including the current selection and whether or not each is empty; buttons to change the tea selection and then dispense it, where you can confirm your selection in the prior section; and an environmental impact summary, a simple counter of how many K-cups or teabags saved since the device was last powered on with the assumption currently being that the slots are filled each time and thus 4 cups are saved per dispensing. 
 
@@ -49,7 +47,9 @@ The software has largely been described already, with the Photon at the center c
 #### Hardware Wiring Diagram
 
 ![Wiring Diagram](images/WiringDiagram.png)
-< Insert Picture and explanation of Your Wiring Diagram here >
+
+The four buttons are in the opposite order from their physical placement to minimize overlap of wires in the diagram. The button color is indicated by the color of the wire connecting it to the Photon. 
+The servos are differentiated by their rotation; the horizontal one on the left is the selection servo, and the vertical one on the right is the dispensing servo. 
 
 #### Code
 
@@ -66,6 +66,8 @@ You should link to your full code, either included in the repository (e.g. [my_c
 < Explain the device's form, the aesthetic choices made and how they relate to the concept/function the device is intended to engage >
 
 < include photos of your device >
+
+It is convienient to open and close while still being secure, but I selected this design over simpler models because for many teas remind them of travel, whether to the impressive tea stores of France and England, the overwhelming plantations of Asia, or anywhere else your imagination might take you! (Except Antarctica, as that is the only continent where tea is not grown.) For all the wood, I elected to leave it bare; it looks much more natural, which is desirable when discussing tea, and the added protection was not necessary for most of the design as the only piece that is likely to come into contact with liquid was the base, which does have a water-resistant sealant. 
 
 ### Evaluation / Reflection
 
