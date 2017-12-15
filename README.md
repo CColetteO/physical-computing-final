@@ -4,13 +4,13 @@
 
 *Due Date:* December 14, 2017
 
-## Project:  < Name of your Project / Device Goes here >
+## Project: The Varie(tea) Dispenser
 
-The <title> is a tea dispenser to help those who enjoy looseleaf tea save time in the morning. It can hold up to seven types of tea, and provides easy measurement for tea by the pot or by the cup. 
+The Varie(tea) Dispenser is a tea dispenser to help those who enjoy looseleaf tea save time in the morning. It can hold up to seven types of tea, and provides easy measurement for tea by the pot or by the cup. 
 
 ### Detailed Project Description
 
-The <title> has three main parts: the rotating holder, the funnel, and the removable single-cup dispenser. 
+The Varie(tea) dispenser has three main parts: the rotating holder, the funnel, and the removable single-cup dispenser. 
 
 The rotating holder has seven slots. The intent is to have a week's worth of tea, but they can be used in any order so it can also be used for seven different types to be used and refilled as desired. It can be rotated using buttons on the device or via the accompanying website. There is an eighth spot, which does not hold tea, which it should be set to when not in use to minimize air exposure and potential disruption to the teas. Once the desired slot is selected, one can refill it and optionally* set it as filled, or have it dispense the tea into the funnel. 
 
