@@ -26,10 +26,6 @@ Together, these increase convenience while cutting down on the environmental imp
 
 ### Technical Description
 
-< Explain the "how" of your project.  What are the hardware components?  What are the software components?  How do they interact with each other? >
-
-< You can also explain the development process here >
-
 The hardware can be broken into three categories: 3D-printed, electronic, and wood. 
 
 The three main parts described in the previous section are all 3D-printed. They are all revisions of existing projects from Thingiverse. 
@@ -89,12 +85,20 @@ int dispenseTea() {
 
 ### Design / Form
 
-< Explain the device's form, the aesthetic choices made and how they relate to the concept/function the device is intended to engage >
+For many elements of the design, the function informed the form by necessity. There were many practical concerns for how to actually dispense the tea, in particular; in order to be able to be both emptied and filled, there usually had to be significant structural challenges (e.g. how to balance something when the center of mass changes) or the tea had to be completely open to the air. Thus, the round design to allow selection without changing the dispensing point was critical, and tilting to dispense rather than pulling a lid or similar was much more appropriate for the intended purpose even if it took more fine-tuning. However, I did consider many designs for this, and eventually settled on one I'd been fortunate to find early on (the pill container) since it had the best appearance and most maximized ease and efficiency of use, furthering the goals of the project. The dispenser was similarly chosen from many design options for its appearance, once the item was narrowed down by its function. 
 
-< include photos of your device >
+This means that the main aesthetic choices were made with the woodwork. For all the wood, I elected to leave it bare; it looks much more natural, invoking the origins of the tea and speaking to the environmental goals of the piece, and the added protection was not necessary for most of the design, as the only piece that is likely to come into contact with liquid is the base which does have a water-resistant sealant. For the hooks, I selected a more subtle matte black rather than a shiny version, since they are meant to fade into the project rather than being a focal point. These two color choices together allowed the colors of the 3D-printed pieces and the buttons to pop as well, which draws the gaze to the interactive pieces as intended. Hopefully, this contrast also reminds the user of the plastic and metal that is not being discarded due to the reusable properties of this over teabags or K-cups. 
 
-It is convienient to open and close while still being secure, but I selected this design over simpler models because for many teas remind them of travel, whether to the impressive tea stores of France and England, the overwhelming plantations of Asia, or anywhere else your imagination might take you! (Except Antarctica, as that is the only continent where tea is not grown.) For all the wood, I elected to leave it bare; it looks much more natural, which is desirable when discussing tea, and the added protection was not necessary for most of the design as the only piece that is likely to come into contact with liquid was the base, which does have a water-resistant sealant. 
+For the Photon case, it is convienient to open and close while still being secure, but I selected this design over simpler models because for many teas remind them of travel, whether to the impressive tea stores of France and England, the overwhelming plantations of Asia, or anywhere else your imagination might take you! Its bare wood and understated metallic accents also blend in with the look of the rest of the piece. 
 
 ### Evaluation / Reflection
 
 < What is your own evaluation of your project?   What did you learn through this project?  What would you do differently in the future? >
+
+For the most part, I am happy with the results of my project. There are certainly some flaws, but for the most part they are much better than they would have been if I didn't explore various options, or they simply were not feasible with the time and resources I had. 
+
+I learned a lot about 3D printing, both specific to the Duke system and not. A Duke-related challenge was the online system; it can sometimes take days of waiting and periodically checking to get a free printer. Outside of Duke, the biggest problem was altering others' work to suit the needs of my project. If they uploaded the .stp files, then some changes could be made, but some detail was lost so most small changes were much harder than when working on a project of one's own. If they only uploaded .stl files, they were almost impossible to change outside of scaling (the x, y, and z axes, or all dimensions at once), which presented numerous challenges but also resulted in inventive and, in the end, more practical solutions. 
+
+My biggest concern that I think I could have fixed was the dispensing servo. The selection servo took a lot of fiddling, but I did eventually get it to almost perfectly consistently select the next slot. The dispensing servo, however, either moved too quickly, throwing tea everywhere, or too slowly, not inducing the tea to pour out, or both. In the end, I chose a middle ground where it "shook" it, minimizing the throwing of tea but still not allowing all the tea to dispense, which I'm rather disappointed in. However, I am still happy that I learned so much about working with servos, both 180 degree ones (testing before ordering and recieving the others) and 360 degree versions with differing torques. Interestingly, the 360 degree ones use the same code as the 180 degree servos, so 0 is full speed forward, 180 is full speed back, and 90 is stop, rather than having degree measurements as with the 180 degree servos. I did not try substituting a 180 degree servo into the project, but I would be interested to see if having degree measurements would make the fine-tuning easier than forward and back impulses. 
+
+For the site, 
